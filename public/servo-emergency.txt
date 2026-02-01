@@ -1,0 +1,35 @@
+ public void HandleServoFailure()
+ {
+     float asiAngle = _dialManager._airSpeedNeedle_3D.localEulerAngles.y;
+     if (asiAngle > 180f) asiAngle -= 360f;
+
+     if (asiAngle < asiAngleThreshold)
+     {
+       
+
+         servoFailureBlend = 0f;
+         rb.drag = initialDrag;
+         rb.angularDrag = initialAngularDrag;
+         return;
+     }
+
+     // Toggle OFF
+     if (!IsServoUnitFailure)
+     {
+         
+         servoFailureBlend = 0f;
+         return;
+     }
+
+     servoFailureBlend = Mathf.MoveTowards(servoFailureBlend, 1f, Time.deltaTime * 0.35f);
+
+     rb.drag = Mathf.Lerp(initialDrag, servoDrag, servoFailureBlend);
+     rb.angularDrag = Mathf.Lerp(initialAngularDrag, servoAngularDrag, servoFailureBlend);
+
+     rb.AddTorque(transform.right * servoPitchRateMultiplier * servoFailureBlend, ForceMode.Acceleration);
+
+     Vector3 localAngularVel = transform.InverseTransformDirection(rb.angularVelocity);
+     float rollError = servoRollRateMultiplier - localAngularVel.z;
+
+     rb.AddTorque(transform.forward * rollError * 2.5f * servoFailureBlend, ForceMode.Acceleration);
+ }

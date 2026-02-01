@@ -1,0 +1,23 @@
+<svg width="14" height="22" viewBox="0 0 14 22" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2.5" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <path
+    d="M7 1
+       C7 1, 2 7, 2 11
+       C2 15, 4.8 19, 7 21
+       C9.2 19, 12 15, 12 11
+       C12 7, 7 1, 7 1 Z"
+    fill="none"
+    stroke="#00bfff"
+    stroke-width="1.5"
+    filter="url(#glow)"
+  />
+</svg>
