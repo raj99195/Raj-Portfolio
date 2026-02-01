@@ -5,7 +5,7 @@ import { FaGamepad, FaCubes } from "react-icons/fa";
 import { MdOutlineScience } from "react-icons/md";
 import { FaLinkedinIn, FaDiscord, FaGooglePlay, FaGlobe } from "react-icons/fa";
 import { HiOutlineMail } from "react-icons/hi";
-import { FaGithub, FaXTwitter } from "react-icons/fa6";
+import { FaXTwitter } from "react-icons/fa6";
 import clickSound from "/click.mp3";
 import "./style.css";
 
