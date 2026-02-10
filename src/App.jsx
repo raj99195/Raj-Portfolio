@@ -5,9 +5,10 @@ import { FaGamepad, FaCubes } from "react-icons/fa";
 import { MdOutlineScience } from "react-icons/md";
 import { FaLinkedinIn, FaDiscord, FaGooglePlay, FaGlobe } from "react-icons/fa";
 import { HiOutlineMail } from "react-icons/hi";
-import { FaXTwitter } from "react-icons/fa6";
 import clickSound from "/click.mp3";
 import "./style.css";
+
+
 
 export default function App() {
     const [heliActive, setHeliActive] = useState(false);
@@ -15,6 +16,8 @@ export default function App() {
     const [activeImage, setActiveImage] = useState(null);
     const heliSectionRef = useRef(null);
     const isMobile = window.innerWidth < 768;
+
+    
 
     /* ================= CLICK SOUND ================= */
     useEffect(() => {
@@ -874,17 +877,6 @@ export default function App() {
                         <FaGithub className="icon" />
                         <span>GitHub</span>
                     </a>
-                    {/* X (Twitter) */}
-                    <a
-                        href="https://x.com/rajindiedev"
-                        target="_blank"
-                        rel="noreferrer"
-                        className="icon-btn twitter"
-                    >
-                        <FaXTwitter className="icon" />
-                        <span>X</span>
-                    </a>
-
 
                 </div>
             </section>
